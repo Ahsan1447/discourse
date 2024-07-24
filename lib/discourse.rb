@@ -547,7 +547,7 @@ module Discourse
 
   # Get the current base URL for the current site
   def self.current_hostname
-    SiteSetting.force_hostname.presence || RailsMultisite::ConnectionManagement.current_hostname
+    ::SiteSetting.force_hostname.presence || RailsMultisite::ConnectionManagement.current_hostname
   end
 
   def self.base_path(default_value = "")
