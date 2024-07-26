@@ -3,6 +3,7 @@
 # Check that the app is configured correctly. Raise some helpful errors if something is wrong.
 
 if defined?(Rails::Server) && Rails.env.production? # Only run these checks when starting up a production server
+  puts "Checking config..."
   if %w[localhost production.localhost].include?(Discourse.current_hostname)
     puts <<~TEXT
 
