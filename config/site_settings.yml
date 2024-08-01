@@ -2297,7 +2297,7 @@ rate_limits:
 developer:
   force_hostname:
     hidden: true
-    default: ""
+    default: "localhost"
   port:
     hidden: true
     default: ""
